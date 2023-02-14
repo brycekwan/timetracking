@@ -1,0 +1,4 @@
+<%= turbo_stream.prepend "companies", @company %>
+<%= turbo_stream.update Company.new do %>
+  <%= render "form", company: Company.new %>
+<% end %>

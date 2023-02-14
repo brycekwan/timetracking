@@ -1,0 +1,50 @@
+<%= turbo_stream_from "companies" %>
+<div class="container mx-auto">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Companies</h1>
+  </div>
+
+
+  <div class="table w-full mt-10">
+    <div class="table-header-group">
+      <div class="table-row">
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Name  
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Address  
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Unit
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          City
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Province 
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Postal Code
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Hst Number
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left"></div>
+      </div>
+    </div>
+
+    <div class="table-row-group">
+      <%= turbo_frame_tag Company.new do %>
+        <%= render "form", company: Company.new %>
+      <% end %>
+      <%= turbo_frame_tag "companies" do %>
+        <% @companies.each do |company| %>
+          <%= render company %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

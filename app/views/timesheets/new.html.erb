@@ -1,0 +1,11 @@
+<h1>New timesheet</h1>
+
+<%= turbo_frame_tag "timesheet_index_frame" do %>
+  <%= render partial: "form", locals: { timesheet: @timesheet, work_orders: @work_orders } %>
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Back to timesheets", timesheets_path %>
+</div>

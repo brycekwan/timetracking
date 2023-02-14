@@ -1,0 +1,3 @@
+<%= turbo_frame_tag @project do %>
+  <%= render partial: "form", locals: { project: @project, companies: @companies } %>
+<% end %>

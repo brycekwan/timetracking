@@ -1,0 +1,22 @@
+<%= turbo_frame_tag invoice  do %>
+  <div class="table-row" id="<%= dom_id invoice %>">
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= invoice.number %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= invoice.vendor.name %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= invoice.issued_at %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= invoice.due_at %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= invoice.term %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+    <%= link_to "Show this invoice", invoice, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    </div>
+  </div>
+<% end %>

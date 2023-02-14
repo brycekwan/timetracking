@@ -1,0 +1,4 @@
+<%= turbo_stream.prepend "vendors", @vendor %>
+<%= turbo_stream.update Vendor.new do %>
+  <%= render partial: "form", locals: { vendor: Vendor.new, companies: @companies } %>
+<% end %>

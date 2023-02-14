@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sunday: 9.99
+  monday: 9.99
+  tuesday: 9.99
+  wednesday: 9.99
+  thursday: 9.99
+  friday: 9.99
+  saturday: 9.99
+  start_at: 2023-01-10 14:23:26
+  user: admin
+  work_order: one
+
+two:
+  sunday: 9.99
+  monday: 9.99
+  tuesday: 9.99
+  wednesday: 9.99
+  thursday: 9.99
+  friday: 9.99
+  saturday: 9.99
+  start_at: 2023-01-10 14:23:26
+  user: admin
+  work_order: two

@@ -1,0 +1,29 @@
+<%= turbo_frame_tag vendor  do %>
+  <div class="table-row" id="<%= dom_id vendor %>">
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= vendor.name %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= vendor.address %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= vendor.unit %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= vendor.postal_code %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= vendor.city %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= vendor.province %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= vendor.country %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= button_to "Delete", vendor_path(vendor), method: :delete, form: { style: "display: inline-block" }  %>
+      <%= link_to "Edit", edit_vendor_path(vendor) %>
+    </div>
+  </div>
+<% end %>

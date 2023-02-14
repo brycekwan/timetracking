@@ -1,0 +1,39 @@
+<%= turbo_stream_from "projects" %>
+<div class="container mx-auto">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Projects</h1>
+  </div>
+  <div class="table w-full mt-10">
+    <div class="table-header-group">
+      <div class="table-row">
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Company
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Description
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Start
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          End
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+        </div>
+      </div>
+    </div>
+    <div class="table-row-group">
+      <%= turbo_frame_tag Project.new do %>
+        <%= render partial: "form", locals: { project: Project.new, companies: @companies } %>
+      <% end %>
+      <%= turbo_frame_tag "projects" do %>
+        <% @projects.each do |project| %>
+          <%= render project %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

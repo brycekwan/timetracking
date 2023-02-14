@@ -1,0 +1,4 @@
+<%= turbo_stream.prepend "work_orders", @work_order %>
+<%= turbo_stream.update WorkOrder.new do %>
+  <%= render partial: "form", locals: { work_order: WorkOrder.new, projects: @projects, users: @users } %>
+<% end %>

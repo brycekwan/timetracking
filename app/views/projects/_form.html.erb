@@ -1,0 +1,28 @@
+<%= form_with(model: project, class: "table-row") do |form| %>
+  <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+    <%= form.select :company_id, options_for_select(companies.map { |company| [company.name, company.id] }), {}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", style: "min-width: 150px;" %>
+  </div>
+  <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+    <%= form.text_field :description, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+  <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+    <%= form.date_field :start_at, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+  <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+    <%= form.date_field :end_at, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+  <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= link_to "Cancel", projects_path if !project.new_record?%>
+  </div>
+  <% if project.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+      <ul>
+        <% project.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>

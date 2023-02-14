@@ -1,0 +1,21 @@
+<main class="container mx-auto">
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Administrator Menu</h1>
+  </div>
+  <% if current_user && current_user.admin? %>
+    <p class="mt-5 mb-5">A blazing fast timesheet management system built with Rails/Hotwire</p>
+  <% end %>
+  <% if user_signed_in? %>
+    <ul>
+      <li><%= link_to "View company", companies_path, class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" if policy(:company).index? %></li>
+      <li><%= link_to "View vendors", vendors_path, class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" if policy(:vendor).index? %></li>
+      <li><%= link_to "View users", users_path, class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" if policy(:user).index? %></li>
+      <li><%= link_to "View projects", projects_path, class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" if policy(:project).index?  %></li>
+      <li><%= link_to "View work orders", work_orders_path, class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" if policy(:work_order).index? %></li>
+      <li><%= link_to "View timesheets", timesheets_path, class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %></li>
+      <li><%= link_to "View invoices", invoices_path, class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" if policy(:invoice).index? %></li>
+    </ul>
+  <% else %>
+    <%= link_to "Sign in", new_user_session_path, class: "btn btn--dark" %>
+  <% end %>
+</main>

@@ -1,0 +1,16 @@
+
+<%= turbo_frame_tag user  do %>
+  <div class="table-row" id="<%= dom_id user %>">
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= user.email %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= button_to "Delete", user_path(user), method: :delete, form: { style: "display: inline-block" }  %>
+      <%= link_to "Edit", edit_user_path(user) %>
+    </div>
+  </div>
+<% end %>

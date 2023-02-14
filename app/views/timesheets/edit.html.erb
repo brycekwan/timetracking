@@ -1,0 +1,3 @@
+<%= turbo_frame_tag @timesheet do %>
+  <%= render partial: "form", locals: { timesheet: @timesheet, work_orders: @work_orders } %>
+<% end %>

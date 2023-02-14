@@ -1,0 +1,39 @@
+<%= turbo_stream_from current_user, "invoices" %>
+<div class="container mx-auto">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Invoices</h1>
+    <%= link_to 'New invoice', new_invoice_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+  <div class="table w-full mt-10">
+    <div class="table-header-group">
+      <div class="table-row">
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Number
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Vendor
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Issued At
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Due At
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Term
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left"></div>
+      </div>
+    </div>
+    <div class="table-row-group">
+      <%= turbo_frame_tag "invoices" do %>
+        <% @invoices.each do |invoice| %>
+          <%= render invoice %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

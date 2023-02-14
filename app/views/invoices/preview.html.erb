@@ -1,0 +1,38 @@
+<%= turbo_frame_tag "invoice_preview" do %>
+  <div class="table w-full mt-10">
+    <div class="table-header-group">
+      <div class="table-row">
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Description
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Hours
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Rate
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Amount
+        </div>
+      </div>
+    </div>
+    <div class="table-row-group">
+      <% @results.each do |result| %>
+        <div class="table-row">
+          <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+            <%= result.description %>
+          </div>
+          <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+            <%= result.hours %>
+          </div>
+          <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+            <%= result.rate %>
+          </div>
+          <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+            <%= result.amount %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

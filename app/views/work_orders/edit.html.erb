@@ -1,0 +1,3 @@
+<%= turbo_frame_tag @work_order do %>
+  <%= render partial: "form", locals: { work_order: @work_order, projects: @projects, users: @users }%>
+<% end %>

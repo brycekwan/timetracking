@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: one
+  description: Project1
+  start_at: 2023-01-10 14:02:36
+  end_at: 2023-01-10 14:02:36
+
+two:
+  company: two
+  description: Project2
+  start_at: 2023-01-10 14:02:36
+  end_at: 2023-01-10 14:02:36

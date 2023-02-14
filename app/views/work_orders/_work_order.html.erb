@@ -1,0 +1,23 @@
+<%= turbo_frame_tag work_order  do %>
+  <div class="table-row" id="<%= dom_id work_order %>">
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= work_order.start_at %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= work_order.end_at %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= work_order.project.description %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= work_order.user.name %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= work_order.rate %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= button_to "Delete", work_order_path(work_order), method: :delete, form: { style: "display: inline-block" }  %>
+      <%= link_to "Edit", edit_work_order_path(work_order) %>
+    </div>
+  </div>
+<% end %>

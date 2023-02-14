@@ -1,0 +1,4 @@
+<%= turbo_stream.prepend "projects", @project %>
+<%= turbo_stream.update Project.new do %>
+  <%= render partial: "form", locals: { project: Project.new, companies: @companies } %>
+<% end %>

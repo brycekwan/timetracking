@@ -1,0 +1,41 @@
+<%= turbo_stream_from current_user, "work_orders" %>
+<div class="container mx-auto">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Work orders</h1>
+  </div>
+  <div class="table w-full mt-10">
+    <div class="table-header-group">
+      <div class="table-row">
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Start At  
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          End At
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Project
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          User
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
+          Rate
+        </div>
+        <div class="table-cell border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left"></div>
+      </div>
+    </div>
+    <div class="table-row-group">
+      <%= turbo_frame_tag WorkOrder.new do %>
+        <%= render partial: "form", locals: { work_order: WorkOrder.new,  projects: @projects, users: @users } %>
+      <% end %>
+      <%= turbo_frame_tag "work_orders" do %>
+        <% @work_orders.each do |work_order| %>
+          <%= render work_order %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

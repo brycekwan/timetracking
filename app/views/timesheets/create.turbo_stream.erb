@@ -1,0 +1,4 @@
+<%= turbo_stream.prepend "timesheets", @timesheet %>
+<%= turbo_stream.update Timesheet.new do %>
+  <%= render partial: "form", locals: { timesheet: Timesheet.new,  work_orders: @work_orders } %>
+<% end %>

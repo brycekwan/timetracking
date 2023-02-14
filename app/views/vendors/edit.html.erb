@@ -1,0 +1,3 @@
+<%= turbo_frame_tag @vendor do %>
+  <%= render partial: "form", locals: { vendor: @vendor, companies: @companies } %>
+<% end %>

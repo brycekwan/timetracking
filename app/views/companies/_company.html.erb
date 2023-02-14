@@ -1,0 +1,30 @@
+<%= turbo_frame_tag company  do %>
+  <div class="table-row" id="<%= dom_id company %>">
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= company.name %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= company.address %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= company.unit %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= company.city %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= company.province %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= company.postal_code %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= company.hst_number %>
+    </div>
+    <div class="table-cell border-b dark:border-slate-600 p-4 pl-8 dark:text-slate-200 text-left">
+      <%= button_to "Delete", company_path(company), method: :delete, form: { style: "display: inline-block" }  %>
+      <%= link_to "Edit", edit_company_path(company) %>
+    </div>
+  </div>
+<% end %>
+
